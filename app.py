@@ -62,6 +62,11 @@ def query(archive_name):
 			value = archive_values[vali]
 			if request.form['search'].lower() in value.lower():
 				matches.append(vali)
+		for keyi in range(len(archive_keys)):
+			key = archive_keys[key]
+			if request.form['search'].lower() in key.lower():
+				if not keyi in matches:
+					matches.append(keyi)
 		results = f"<p>Got {len(matches)} results.</p><br>"
 		for match in matches:
 			page = archive_keys[match]
