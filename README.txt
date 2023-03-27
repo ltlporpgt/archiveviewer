@@ -15,6 +15,9 @@ made by eyebot.
 ====DEPENDENCIES====
 This tool requires flask.
 
+====VIDEO DEMO====
+https://www.youtube.com/watch?v=5qQPm5f0_wg
+
 ====INSTRUCTIONS====
 
 TO RUN:
