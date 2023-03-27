@@ -15,6 +15,9 @@ header = title+css_link
 def sanitize(text):
 	return text.replace("<","&lt;").replace(">","&gt;")
 
+def urlsanitize(text):
+	return text.replace("\\", "%5C")
+
 @app.route("/styles/<path:subpath>")
 def load_style(subpath):
 	style_file = open('styles/'+subpath, 'r')
@@ -70,7 +73,7 @@ def query(archive_name):
 		results = f"<p>Got {len(matches)} results.</p><br>"
 		for match in matches:
 			page = archive_keys[match]
-			results += f"<a href='edit/{sanitize(page)}'>{sanitize(page)}</a><br>"
+			results += f"<a href='edit/{urlsanitize(sanitize(page))}'>{sanitize(page)}</a><br>"
 		return header+results
 	else:
 		return header+f"<p>No query given. Please use <a href='search'>the search function</a>."
